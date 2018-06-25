@@ -57,13 +57,7 @@ for link in ig_soup.findAll('div', class_='item mainshadow'):
 '''
 # ____________________________________________________________________________
 
-# Variables__________________________________
 n = 0
-ming2 = min(g2a_price)
-minig = min(ig_price)
-index_ming2 = g2a_price.index(ming2)
-index_minig = ig_price.index(minig)
-# ____________________________________________
 
 for i in g2a_title:
     if str(g2a_title[0]).split()[0] not in str(i):
@@ -94,13 +88,7 @@ else:
                 n += 1
             except IndexError:
                 pass
-print('\nLowest price G2A:\n' + g2a_title[index_ming2], '\n' +
-      str(ming2) + '€' + '\nhttps://www.g2a.com/' + g2a_link[index_ming2] + '\n')
-if str(ig_title[0]) == 'None':
-    pass
-else:
-    print('Lowest Price IG:\n' + str(ig_title[index_minig]),
-          '\n' + str(minig) + '\n' + str(ig_link[index_minig]))
+
 print('\nCreated by Sud0nim')
 input('press ENTER to exit: ')
 
