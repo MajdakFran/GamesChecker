@@ -22,6 +22,7 @@ ig_source = requests.get(
 # humble_source = requests.get(
 #    'https://www.humblebundle.com/store/search?sort=bestselling&search=' + str(query).replace(' ', '%20'))
 
+
 g2a_soup = BeautifulSoup(g2a_source.text, 'lxml')
 ig_soup = BeautifulSoup(ig_source.text, 'lxml')
 #kinguin_soup = BeautifulSoup(kinguin_source.text, 'lxml')
@@ -50,18 +51,13 @@ for link in ig_soup.findAll('div', class_='item mainshadow'):
     ig_link.append(link.a.get('href'))
 # ___________________________________________________________________________
 
-
+# Humble______________________________________________________________________
 '''for price in humble_soup.findAll('span', class_='price'):
     print(price)
 '''
+# ____________________________________________________________________________
 
-# Variables__________________________________
 n = 0
-ming2 = min(g2a_price)
-minig = min(ig_price)
-index_ming2 = g2a_price.index(ming2)
-index_minig = ig_price.index(minig)
-# ____________________________________________
 
 for i in g2a_title:
     if str(g2a_title[0]).split()[0] not in str(i):
@@ -76,19 +72,27 @@ for i in g2a_title:
         except IndexError:
             pass
 n = 0
-for i in ig_title:
-    if str(ig_title[0]).split()[0] not in str(i):
-        pass
-    else:
-        try:
-            print('INSTANT GAMING')
-            print(ig_title[n])
-            print(ig_price[n])
-            print(ig_link[n] + '\n')
-            n += 1
-        except IndexError:
+if str(ig_title[0]) == 'None':
+    print('INSTANT GAMING')
+    print('No match!')
+else:
+    for i in ig_title:
+        if str(ig_title[0]).split()[0] not in str(i):
             pass
-print('\nLowest price G2A:\n' + g2a_title[index_ming2], '\n' +
-      str(ming2) + '€' + '\nhttps://www.g2a.com/' + g2a_link[index_ming2] + '\n')
-print('Lowest Price IG:\n' + ig_title[index_minig], '\n' + str(minig) + '\n' + ig_link[index_minig])
+        else:
+            try:
+                print('INSTANT GAMING')
+                print(ig_title[n])
+                print(ig_price[n])
+                print(ig_link[n] + '\n')
+                n += 1
+            except IndexError:
+                pass
+
+print('\nCreated by Sud0nim')
 input('press ENTER to exit: ')
+
+# Todo:
+# add humble-bundle and kinguin
+# add sorting by price
+# add better game recognition
