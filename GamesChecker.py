@@ -19,8 +19,8 @@ g2a_source = requests.get(
     'https://www.g2a.com/en-us/search?query=' + str(query).replace(' ', '%20'))
 ig_source = requests.get(
     'https://www.instant-gaming.com/en/search/?&query=' + str(query).replace(' ', '+'))
-humble_source = requests.get(
-    'https://www.humblebundle.com/store/search?sort=bestselling&search=' + str(query).replace(' ', '%20'))
+# humble_source = requests.get(
+#    'https://www.humblebundle.com/store/search?sort=bestselling&search=' + str(query).replace(' ', '%20'))
 
 
 g2a_soup = BeautifulSoup(g2a_source.text, 'lxml')
@@ -52,8 +52,9 @@ for link in ig_soup.findAll('div', class_='item mainshadow'):
 # ___________________________________________________________________________
 
 # Humble______________________________________________________________________
-for price in humble_soup.findAll('span', class_='price'):
+'''for price in humble_soup.findAll('span', class_='price'):
     print(price)
+'''
 # ____________________________________________________________________________
 
 # Variables__________________________________
@@ -92,7 +93,7 @@ for i in ig_title:
 print('\nLowest price G2A:\n' + g2a_title[index_ming2], '\n' +
       str(ming2) + '€' + '\nhttps://www.g2a.com/' + g2a_link[index_ming2] + '\n')
 print('Lowest Price IG:\n' + ig_title[index_minig], '\n' + str(minig) + '\n' + ig_link[index_minig])
-print('Created by Sud0nim')
+print('\nCreated by Sud0nim')
 input('press ENTER to exit: ')
 
 # Todo:
