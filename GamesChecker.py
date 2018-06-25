@@ -19,8 +19,9 @@ g2a_source = requests.get(
     'https://www.g2a.com/en-us/search?query=' + str(query).replace(' ', '%20'))
 ig_source = requests.get(
     'https://www.instant-gaming.com/en/search/?&query=' + str(query).replace(' ', '+'))
-# humble_source = requests.get(
-#    'https://www.humblebundle.com/store/search?sort=bestselling&search=' + str(query).replace(' ', '%20'))
+humble_source = requests.get(
+    'https://www.humblebundle.com/store/search?sort=bestselling&search=' + str(query).replace(' ', '%20'))
+
 
 g2a_soup = BeautifulSoup(g2a_source.text, 'lxml')
 ig_soup = BeautifulSoup(ig_source.text, 'lxml')
@@ -50,10 +51,10 @@ for link in ig_soup.findAll('div', class_='item mainshadow'):
     ig_link.append(link.a.get('href'))
 # ___________________________________________________________________________
 
-
-'''for price in humble_soup.findAll('span', class_='price'):
+# Humble______________________________________________________________________
+for price in humble_soup.findAll('span', class_='price'):
     print(price)
-'''
+# ____________________________________________________________________________
 
 # Variables__________________________________
 n = 0
@@ -97,4 +98,4 @@ input('press ENTER to exit: ')
 # Todo:
 # add humble-bundle and kinguin
 # add sorting by price
-# dd better game reckognition
+# add better game recognition
