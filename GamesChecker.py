@@ -78,25 +78,29 @@ for i in g2a_title:
         except IndexError:
             pass
 n = 0
-# problem for ig if there is no games matching query it has the title set as none
-# possible fix is to set an if statement so that if there is a no match title on the site
-# it prints "No match"
-for i in ig_title:
-    if str(ig_title[0]).split()[0] not in str(i):
-        pass
-    else:
-        try:
-            print('INSTANT GAMING')
-            print(ig_title[n])
-            print(ig_price[n])
-            print(ig_link[n] + '\n')
-            n += 1
-        except IndexError:
+if str(ig_title[0]) == 'None':
+    print('INSTANT GAMING')
+    print('No match!')
+else:
+    for i in ig_title:
+        if str(ig_title[0]).split()[0] not in str(i):
             pass
+        else:
+            try:
+                print('INSTANT GAMING')
+                print(ig_title[n])
+                print(ig_price[n])
+                print(ig_link[n] + '\n')
+                n += 1
+            except IndexError:
+                pass
 print('\nLowest price G2A:\n' + g2a_title[index_ming2], '\n' +
       str(ming2) + '€' + '\nhttps://www.g2a.com/' + g2a_link[index_ming2] + '\n')
-print('Lowest Price IG:\n' + str(ig_title[index_minig]),
-      '\n' + str(minig) + '\n' + str(ig_link[index_minig]))
+if str(ig_title[0]) == 'None':
+    pass
+else:
+    print('Lowest Price IG:\n' + str(ig_title[index_minig]),
+          '\n' + str(minig) + '\n' + str(ig_link[index_minig]))
 print('\nCreated by Sud0nim')
 input('press ENTER to exit: ')
 
