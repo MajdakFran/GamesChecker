@@ -91,4 +91,10 @@ for i in ig_title:
 print('\nLowest price G2A:\n' + g2a_title[index_ming2], '\n' +
       str(ming2) + '€' + '\nhttps://www.g2a.com/' + g2a_link[index_ming2] + '\n')
 print('Lowest Price IG:\n' + ig_title[index_minig], '\n' + str(minig) + '\n' + ig_link[index_minig])
+print('Created by Sud0nim')
 input('press ENTER to exit: ')
+
+# Todo:
+# add humble-bundle and kinguin
+# add sorting by price
+# dd better game reckognition
